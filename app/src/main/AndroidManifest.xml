@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vrajdesai78.GroceryStore">
+
+    <application
+        android:name="com.vrajdesai78.GroceryStore.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FoodApp"
+        android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+        <activity android:name="com.vrajdesai78.GroceryStore.ui.product.ProductActivity">
+
+        </activity>
+        <activity
+            android:name="com.vrajdesai78.GroceryStore.ui.activity.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity android:name="com.vrajdesai78.GroceryStore.ui.activity.RegistrationActivity" />
+        <activity android:name="com.vrajdesai78.GroceryStore.ui.activity.LoginActivity" />
+        <activity android:name="com.vrajdesai78.GroceryStore.ui.activity.GetStartedActivity" />
+        <activity android:name="com.vrajdesai78.GroceryStore.ui.detailproduct.DetailProductActivity" />
+        <activity android:name="com.vrajdesai78.GroceryStore.ui.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
