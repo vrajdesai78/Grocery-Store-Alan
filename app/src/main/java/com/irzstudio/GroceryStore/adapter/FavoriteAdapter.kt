@@ -37,7 +37,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>
                 .into(itemView.iv_picture_favorite)
             itemView.tv_name_favorite.text = productEntity.name
             itemView.tv_description_favorite.text = productEntity.description
-            itemView.tv_price_favorite.text = "IDR $priceRupiah"
+            itemView.tv_price_favorite.text = "INR $priceRupiah"
 
         }
     }

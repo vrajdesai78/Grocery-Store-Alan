@@ -51,7 +51,7 @@ class CartAdapter(val listener : OnTotalChange): RecyclerView.Adapter<CartAdapte
                 .into(itemView.iv_picture_cart)
             itemView.tv_name_cart.text = productEntity.name
             itemView.tv_description_cart.text = productEntity.description
-            itemView.tv_price_cart.text = "IDR $priceRupiah"
+            itemView.tv_price_cart.text = "INR $priceRupiah"
             itemView.tv_value_cart.text = productEntity.qty.toString()
         }
     }

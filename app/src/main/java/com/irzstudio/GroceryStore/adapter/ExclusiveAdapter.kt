@@ -36,7 +36,7 @@ class ExclusiveAdapter : RecyclerView.Adapter<ExclusiveAdapter.ExclusiveViewHold
             Glide.with(itemView).load(productEntity.picture).into(itemView.iv_picture)
             itemView.tv_name.text = productEntity.name
             itemView.tv_description.text = productEntity.description
-            itemView.tv_price.text = "IDR $priceRupiah"
+            itemView.tv_price.text = "INR $priceRupiah"
         }
     }
 

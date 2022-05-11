@@ -36,7 +36,7 @@ class BeveragesAdapter() : RecyclerView.Adapter<BeveragesAdapter.BeveragesViewHo
             Glide.with(itemView).load(productEntity.picture).into(itemView.iv_picture_product)
             itemView.tv_name_product.text = productEntity.name
             itemView.tv_description_product.text = productEntity.description
-            itemView.tv_price_product.text = "IDR $priceRupiah"
+            itemView.tv_price_product.text = "INR $priceRupiah"
 
         }
     }

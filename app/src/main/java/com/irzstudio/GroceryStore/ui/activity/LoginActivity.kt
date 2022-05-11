@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import com.irzstudio.GroceryStore.R
 import com.irzstudio.GroceryStore.helper.PreferencesHelper
-import kotlinx.android.synthetic.main.activity_login_avtivity.*
+import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginAvtivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private val sharedPref: PreferencesHelper by lazy {
         PreferencesHelper(this)
@@ -16,7 +16,7 @@ class LoginAvtivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_avtivity)
+        setContentView(R.layout.activity_login)
 
         loginOrSignIn()
         navigationToRegistrasi()

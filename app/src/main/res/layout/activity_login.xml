@@ -7,7 +7,7 @@
     android:background="@color/backgroud"
     android:orientation="vertical"
     android:padding="@dimen/_24sdp"
-    tools:context=".ui.activity.LoginAvtivity">
+    tools:context=".ui.activity.LoginActivity">
 
 
     <ImageView

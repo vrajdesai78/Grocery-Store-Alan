@@ -17,8 +17,8 @@
         <activity
             android:name="com.irzstudio.GroceryStore.ui.activity.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity android:name="com.irzstudio.GroceryStore.ui.activity.RegistrasiActivity" />
-        <activity android:name="com.irzstudio.GroceryStore.ui.activity.LoginAvtivity" />
+        <activity android:name="com.irzstudio.GroceryStore.ui.activity.RegistrationActivity" />
+        <activity android:name="com.irzstudio.GroceryStore.ui.activity.LoginActivity" />
         <activity android:name="com.irzstudio.GroceryStore.ui.activity.GetStartedActivity" />
         <activity android:name="com.irzstudio.GroceryStore.ui.detailproduct.DetailProductActivity" />
         <activity android:name="com.irzstudio.GroceryStore.ui.activity.SplashActivity">

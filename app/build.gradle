@@ -86,4 +86,6 @@ dependencies {
     //image slider
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
+    //Alan
+    implementation "app.alan:sdk:4.12.0"
 }

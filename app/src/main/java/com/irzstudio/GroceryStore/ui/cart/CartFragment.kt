@@ -28,14 +28,13 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                 val dec = DecimalFormat("#,###")
                 val priceRupiah = dec.format(total)
 
-                tv_total_price.text = "IDR $priceRupiah"
+                tv_total_price.text = "INR $priceRupiah"
             }
         })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         observeCart()
         setListCart()

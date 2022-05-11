@@ -69,7 +69,6 @@
                         android:id="@+id/iv_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/foto_profile"
                         android:layout_gravity="center|bottom"/>
 
                 </androidx.cardview.widget.CardView>

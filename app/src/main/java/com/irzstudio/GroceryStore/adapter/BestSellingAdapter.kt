@@ -36,7 +36,7 @@ class BestSellingAdapter : RecyclerView.Adapter<BestSellingAdapter.BestSellingVi
             Glide.with(itemView).load(productEntity.picture).into(itemView.iv_picture_best_selling)
             itemView.tv_name_best_selling.text = productEntity.name
             itemView.tv_description_best_selling.text = productEntity.description
-            itemView.tv_price_best_selling.text = "IDR $priceRupiah"
+            itemView.tv_price_best_selling.text = "INR $priceRupiah"
 
         }
     }

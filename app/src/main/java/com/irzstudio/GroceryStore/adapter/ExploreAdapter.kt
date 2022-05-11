@@ -41,7 +41,7 @@ class ExploreAdapter: RecyclerView.Adapter<ExploreAdapter.ExploreViewHolder>() {
                 .into(itemView.iv_picture_explore)
             itemView.tv_name_explore.text = productEntity.name
             itemView.tv_description_explore.text = productEntity.description
-            itemView.tv_price_explore.text = "IDR $priceRupiah"
+            itemView.tv_price_explore.text = "INR $priceRupiah"
         }
     }
 

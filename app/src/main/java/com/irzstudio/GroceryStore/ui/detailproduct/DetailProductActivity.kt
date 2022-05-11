@@ -45,7 +45,7 @@ class DetailProductActivity : AppCompatActivity() {
             .transition(DrawableTransitionOptions.withCrossFade()).into(iv_picture_detail)
         tv_name_detail.text = productEntity.name
         tv_description_detail.text = productEntity.description
-        tv_price_detail.text = "IDR $priceRupiah"
+        tv_price_detail.text = "INR $priceRupiah"
     }
 
     private fun observeIsFavorited() {
