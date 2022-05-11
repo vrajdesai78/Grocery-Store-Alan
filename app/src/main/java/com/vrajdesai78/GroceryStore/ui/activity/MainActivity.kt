@@ -1,5 +1,7 @@
 package com.vrajdesai78.GroceryStore.ui.activity
 
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,11 +15,13 @@ import com.vrajdesai78.GroceryStore.data.Repository
 import com.vrajdesai78.GroceryStore.model.DataBase
 import com.vrajdesai78.GroceryStore.ui.account.AccountFragment
 import com.vrajdesai78.GroceryStore.ui.cart.CartFragment
+import com.vrajdesai78.GroceryStore.ui.detailproduct.DetailProductViewModel
 import com.vrajdesai78.GroceryStore.ui.explore.ExploreFragment
 import com.vrajdesai78.GroceryStore.ui.favorite.FavoriteFragment
 import com.vrajdesai78.GroceryStore.ui.shop.ShopFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONException
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,10 +33,16 @@ class MainActivity : AppCompatActivity() {
         shopFragment()
         initBottomNavigation()
 
+        val ai: ApplicationInfo = applicationContext.packageManager
+            .getApplicationInfo(applicationContext.packageName, PackageManager.GET_META_DATA)
+        val value = ai.metaData["keyValue"]
+
         // Set up the Alan button
-        val config = AlanConfig.builder().setProjectId("7dafdbf268565bd74abfdffd7c3138202e956eca572e1d8b807a3e2338fdd0dc/stage").build()
+        val config = AlanConfig.builder().setProjectId("$value/stage").build()
         alanButton = findViewById(R.id.alan_button)
         alanButton?.initWithConfig(config)
+
+        val viewModel: DetailProductViewModel by viewModel()
 
         val alanCallback: AlanCallback = object : AlanCallback() {
             /// Handle commands from Alan Studio
@@ -48,6 +58,13 @@ class MainActivity : AppCompatActivity() {
                         "showCart" -> {
                             cartFragment()
                             bottom_nav_bar.selectedItemId = R.id.cart
+                        }
+                        "addFavorite" -> {
+                            val itemName = command.getJSONObject("data").getString("item")
+                            val dummyDataSource = DummyDataSource()
+                            val productEntity = dummyDataSource.getProductEntity(itemName)
+                            viewModel.saveProduct(productEntity!!)
+                            Log.d("testing", "$itemName added to favorite")
                         }
                         "addItem" -> {
                             val itemName = command.getJSONObject("data").getString("item")

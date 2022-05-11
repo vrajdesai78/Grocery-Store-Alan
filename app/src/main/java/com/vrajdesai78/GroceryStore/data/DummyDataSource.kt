@@ -10,7 +10,7 @@ class DummyDataSource {
 
     fun getExclusive(): Observable<ArrayList<ProductEntity>> {
 
-        val dummy1 = ProductEntity(name = "Fresh Bananas", description = "7pcs, Price",
+        val dummy1 = ProductEntity(name = "Fresh Bananas", description = "1kg, Price",
             price = 40,
             picture = R.drawable.iv_bananas,
             id = 1

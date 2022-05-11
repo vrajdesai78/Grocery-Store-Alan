@@ -2,7 +2,7 @@
 
     <style name="Theme.FoodApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
+        <item name="android:statusBarColor" >@color/primary</item>
     </style>
 
 </resources>

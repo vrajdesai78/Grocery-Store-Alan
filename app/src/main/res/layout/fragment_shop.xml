@@ -27,7 +27,7 @@
                     android:id="@+id/rv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hello Irsyad!"
+                    android:text="Hello Vraj!"
                     android:textColor="@color/primary_text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0"
