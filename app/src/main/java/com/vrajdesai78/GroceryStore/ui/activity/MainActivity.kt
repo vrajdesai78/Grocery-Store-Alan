@@ -66,6 +66,14 @@ class MainActivity : AppCompatActivity() {
                             viewModel.saveProduct(productEntity!!)
                             Log.d("testing", "$itemName added to favorite")
                         }
+                        "showHome" -> {
+                            shopFragment()
+                            bottom_nav_bar.selectedItemId = R.id.shop
+                        }
+                        "showProfile" -> {
+                            accountFragment()
+                            bottom_nav_bar.selectedItemId = R.id.account
+                        }
                         "addItem" -> {
                             val itemName = command.getJSONObject("data").getString("item")
                             val count = command.getJSONObject("data").getString("count")
