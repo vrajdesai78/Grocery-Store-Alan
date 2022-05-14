@@ -33,68 +33,6 @@ class MainActivity : AppCompatActivity() {
         shopFragment()
         initBottomNavigation()
 
-        val ai: ApplicationInfo = applicationContext.packageManager
-            .getApplicationInfo(applicationContext.packageName, PackageManager.GET_META_DATA)
-        val value = ai.metaData["keyValue"]
-
-        // Set up the Alan button
-        val config = AlanConfig.builder().setProjectId("$value/stage").build()
-        alanButton = findViewById(R.id.alan_button)
-        alanButton?.initWithConfig(config)
-
-        val viewModel: DetailProductViewModel by viewModel()
-
-        val alanCallback: AlanCallback = object : AlanCallback() {
-            /// Handle commands from Alan Studio
-            override fun onCommand(eventCommand: EventCommand) {
-                try {
-                    val command = eventCommand.data
-                    val commandName = command.getJSONObject("data").getString("command")
-                    when(commandName) {
-                        "showFavorite" -> {
-                            favoriteFragment()
-                            bottom_nav_bar.selectedItemId = R.id.favorite
-                        }
-                        "showCart" -> {
-                            cartFragment()
-                            bottom_nav_bar.selectedItemId = R.id.cart
-                        }
-                        "addFavorite" -> {
-                            val itemName = command.getJSONObject("data").getString("item")
-                            val dummyDataSource = DummyDataSource()
-                            val productEntity = dummyDataSource.getProductEntity(itemName)
-                            viewModel.saveProduct(productEntity!!)
-                            Log.d("testing", "$itemName added to favorite")
-                        }
-                        "showHome" -> {
-                            shopFragment()
-                            bottom_nav_bar.selectedItemId = R.id.shop
-                        }
-                        "showProfile" -> {
-                            accountFragment()
-                            bottom_nav_bar.selectedItemId = R.id.account
-                        }
-                        "addItem" -> {
-                            val itemName = command.getJSONObject("data").getString("item")
-                            val count = command.getJSONObject("data").getString("count")
-                            val dummyDataSource = DummyDataSource()
-                            val productEntity = dummyDataSource.getProductEntity(itemName)
-                            val repository = Repository(dummyDataSource, DataBase.getInstance()!!)
-                            if (productEntity != null) {
-                                repository.addToCart(productEntity, count.toInt())
-                            }
-                            Log.d("testing", productEntity.toString())
-                            Log.d("testing", "$itemName and $count")
-                        }
-                    }
-                } catch (e: JSONException) {
-                    e.message?.let { Log.e("AlanButton", it) }
-                }
-            }
-        };
-
-        // Register callbacks
-        alanButton?.registerCallback(alanCallback);
     }
 
     private fun initBottomNavigation() {
