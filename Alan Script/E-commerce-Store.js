@@ -32,7 +32,7 @@ intent(`(Add|I want|want) $(ITEM u:itemList) to favorite`, p=> {
 })
 
 intent(`(Add|I want|want) $(NUMBER) (kg|gram|grams|) $(ITEM u:itemList) (to cart|)`, p => {
-     var a = "";
+     var a = `${p.NUMBER.value}`;
      if(p.ITEM.value == "ginger" || p.ITEM.value == "rice") {
          if(p.NUMBER.value >= 250 && p.NUMBER.value%250 == 0) {
              a = `${p.NUMBER.value} gram`;
@@ -43,11 +43,8 @@ intent(`(Add|I want|want) $(NUMBER) (kg|gram|grams|) $(ITEM u:itemList) (to cart
              p.NUMBER.value *= 4;
          }
      }
-    else if(p.ITEM.value == "red apple_" || p.ITEM.value == "fresh banana_"){
+    if(p.ITEM.value == "red apple" || p.ITEM.value == "fresh banana"){
         a = `${p.NUMBER.value} kg`;
-    }
-    else {
-        a = `${p.NUMBER.value}`;
     }
      p.play({command: "addItem", item: `${p.ITEM.value}`, count: `${p.NUMBER.value}`});
      p.play(`Done. Added ${a} ${p.ITEM.value}`);
